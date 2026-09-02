@@ -1,0 +1,24 @@
+class Solution {
+public:
+    /*
+        Time complexity: O(2n)
+        Space complexity: O(n)
+    */
+
+    int majorityElement(vector<int>& nums) {
+        int n = nums.size();
+
+        unordered_map<int, int> mpp;
+        for(int i = 0; i <= n - 1; i++) {
+            mpp[nums[i]]++;
+        }
+
+        for(auto it: mpp) {
+            if(it.second > n/2) {
+                return it.first;
+            }
+        }
+
+        return -1;
+    }
+};
